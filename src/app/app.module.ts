@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CourseListComponent } from './courses/course-list.component';
 import { StartComponent } from './star/star.component';
@@ -25,6 +25,8 @@ import { CourseInfoComponent } from './courses/course-info.component';
   imports: [
     BrowserModule,
     FormsModule,
+    // requisicoes http
+    HttpClientModule,
     // trabalhando com rotas; definindo roteamento da aplicação
     RouterModule.forRoot([
       // arays de (objetos de) rotas

@@ -1,5 +1,7 @@
 import { Course } from './course';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 /**
@@ -14,16 +16,24 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CourseService {
+  private basePathApiUrl: string = 'http://localhost:3100/api/courses';
+  constructor(private httpClient: HttpClient) {}
 
-  retrieveAll(): Course[] {
-    return COURSES;
+  retrieveAll(): Observable<Course[]> {
+    return this.httpClient.get<Course[]>(this.basePathApiUrl);
   }
 
-  retrieveById(id: number) : Course {
-    return COURSES.find((item: Course) => item.id === id);
+  retrieveById(id: number): Observable<Course> {
+    return this.httpClient.get<Course>(`${this.basePathApiUrl}/${id}`);
   }
 
-
+  save(course: Course): Observable<Course> {
+    if(course.id) {
+      return this.httpClient.put<Course>(`${this.basePathApiUrl}/${course.id}`, course);
+    } else {
+      return this.httpClient.post<Course>(`${this.basePathApiUrl}`, course);
+    }
+  }
 }
 
 var COURSES: Course[] = [

@@ -18,14 +18,21 @@ export class  CourseListComponent implements OnInit {
   constructor(private courseService: CourseService) {};
 
   ngOnInit(): void {
-    // usando o serviço (de CourseService) que injetamos na aplicação
-    this._courses = this.courseService.retrieveAll();
-    this.filteredCourses = this._courses;
+    this.retrieveAll();
   }
 
+  retrieveAll(): void {
+    // usando o serviço (de CourseService) que injetamos na aplicação
+    this.courseService.retrieveAll().subscribe({
+      next: retrievedCourses => {
+        this._courses = retrievedCourses;
+        this.filteredCourses = this._courses;
+      },
+      error: err => console.log('Erro', err)
+    });
+   }
 
   // filter e get usados para fazer o two-way data bind
-
   // input
   set filter(value: string) {
     this._filterBy = value;

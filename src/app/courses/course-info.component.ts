@@ -18,7 +18,16 @@ export class CourseInfoComponent implements OnInit {
    * na inicialização do componente, vai usar o serviço para pegar o parametro id da rota.
    */
   ngOnInit(): void {
-    this.course = this.courseService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id'));
+    this.courseService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id')).subscribe({
+      next: course => this.course = course,
+      error: err => console.log("Erro", err)
+    });
   }
 
+  save(): void {
+    this.courseService.save(this.course).subscribe({
+      next: course => console.log('Salvo com sucesso', course),
+      error: err => console.log("Error", err)
+    });
+  }
 };
