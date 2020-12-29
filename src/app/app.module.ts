@@ -10,21 +10,18 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ReplacePipe } from './pipe/replace.pipe';
 import { Error404Component } from './error404/error404.component';
 import { CourseInfoComponent } from './courses/course-info.component';
+import { CourseModule } from './courses/course.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CourseListComponent,
-    StartComponent,
     NavbarComponent,
     Error404Component,
-    CourseInfoComponent,
-    ReplacePipe
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    CourseModule,
     // requisicoes http
     HttpClientModule,
     // trabalhando com rotas; definindo roteamento da aplicação
@@ -33,13 +30,6 @@ import { CourseInfoComponent } from './courses/course-info.component';
       // raiz
       {
         path: '', redirectTo: 'courses', pathMatch: 'full'
-      },
-      {
-        path: 'courses', component: CourseListComponent
-      },
-      // uma rota que recebe uma parametro chamado 'id'
-      {
-        path: 'courses/info/:id', component: CourseInfoComponent
       },
       // pagina não encontrada, 404, (quando nada bate)
       {
