@@ -15,6 +15,8 @@ Este projeto foi gerado com o [Angular CLI](https://github.com/angular/angular-c
 
 - Injenção de Dependência (classe de serviço)
 
+- Two-way data binding: com set e get
+
 
 
 ## Servidor de desenvolvimento
