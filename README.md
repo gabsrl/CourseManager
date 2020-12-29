@@ -17,6 +17,8 @@ Este projeto foi gerado com o [Angular CLI](https://github.com/angular/angular-c
 
 - Two-way data binding: com set e get
 
+- Requisições HTTP (POST, PUT, GET)
+
 
 
 ## Servidor de desenvolvimento

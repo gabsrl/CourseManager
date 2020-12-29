@@ -31,6 +31,16 @@ export class  CourseListComponent implements OnInit {
       error: err => console.log('Erro', err)
     });
    }
+  
+  deleteById(courseId: number): void {
+    this.courseService.deleteById(courseId).subscribe({
+      next: () => {
+        console.log("Deletado com sucesso!");
+        this.retrieveAll();
+      },
+      error: err => console.log("Erro", err)
+    })
+  }
 
   // filter e get usados para fazer o two-way data bind
   // input
