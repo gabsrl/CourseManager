@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { CourseListComponent } from './courses/course-list.component';
 import { StartComponent } from './shared/component/star/star.component';
 import { ReplacePipe } from './shared/pipe/replace.pipe';
-import { Error404Component } from './error404/error404.component';
 import { CourseInfoComponent } from './courses/course-info.component';
 import { CourseModule } from './courses/course.module';
 import { CoreModule } from './core/core.module';
@@ -16,7 +15,6 @@ import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [
     AppComponent,
-    Error404Component,
   ],
   imports: [
     BrowserModule,
@@ -31,10 +29,6 @@ import { CoreModule } from './core/core.module';
       {
         path: '', redirectTo: 'courses', pathMatch: 'full'
       },
-      // pagina não encontrada, 404, (quando nada bate)
-      {
-        path: '**', component: Error404Component
-      }
     ])
   ],
   providers: [],
