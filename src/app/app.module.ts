@@ -6,22 +6,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CourseListComponent } from './courses/course-list.component';
 import { StartComponent } from './shared/component/star/star.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { ReplacePipe } from './shared/pipe/replace.pipe';
 import { Error404Component } from './error404/error404.component';
 import { CourseInfoComponent } from './courses/course-info.component';
 import { CourseModule } from './courses/course.module';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     Error404Component,
   ],
   imports: [
     BrowserModule,
     CourseModule,
+    CoreModule,
     // requisicoes http
     HttpClientModule,
     // trabalhando com rotas; definindo roteamento da aplicação
